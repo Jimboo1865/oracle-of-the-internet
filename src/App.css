@@ -1,0 +1,107 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  overflow: visible;
+  overflow: visible;
+}
+hr {
+  width: 80%;
+  border: 1px solid gold;
+  margin: 1rem 0;
+}
+h2 {
+  color: #ff4444;
+  text-shadow:
+    0 0 3px #b30000,
+    0 0 8px #ff6600;
+}
+.lamp-container {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.lamp-container img {
+  position: relative;
+  z-index: 2;
+  width: 200px;
+  overflow: visible;
+}
+
+.lamp-container::after {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(
+    circle,
+    rgba(59,130,246,0.8) 0%,
+    rgba(139,92,246,0.5) 40%,
+    rgba(255,243,176,0.3) 80%,
+    transparent 100%
+  );
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.lamp-container:hover::after {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+.fancy-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-align: center;
+
+  /* The gradient fill */
+  background: linear-gradient(
+    90deg,
+    rgba(59,130,246,1),
+    rgba(139,92,246,1),
+    rgba(255, 105, 180,0.8)
+  );
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientPulse 4s ease-in-out infinite;
+}
+
+@keyframes gradientPulse {
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(0.85);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(0.85);
+  }
+}
