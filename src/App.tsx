@@ -9,7 +9,7 @@ export default function App() {
   
   const responses = ["Yes", "No", "Maybe", "Ask again later", "Definitely"];
 
-  const [theme, setTheme] = useState("Standard"); // or "blue", "green", etc.
+  const [theme, setTheme] = useState("Standard");
   const themes = ["Standard", "Poison", "Gold", "Mystic"];
   const toggleTheme = () => {
   const currentIndex = themes.indexOf(theme);
@@ -18,10 +18,7 @@ export default function App() {
 };
   
   const handleMouseOver = () => {
-    // Clear the input
     setQuestionValue("");
-    
-    // Generate random answer
     const randomIndex = Math.floor(Math.random() * responses.length);
   
         setAnswer(responses[randomIndex]);
